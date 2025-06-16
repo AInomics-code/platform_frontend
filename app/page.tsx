@@ -2,6 +2,7 @@
 
 import ChatMessages from "@/components/ChatMessages";
 import AgentInputField from "@/components/AgentInputField";
+import Vortex from "@/components/Vortex";
 import { useState } from "react";
 import axiosInstance from "@/lib/axios";
 
@@ -84,13 +85,16 @@ export default function Home() {
                 />
               </div>
             ) : (
-              <div className="flex flex-1 items-center justify-center h-full">
-                <AgentInputField
-                  value={inputValue}
-                  onChange={setInputValue}
-                  onSend={handleSend}
-                  isLoading={isLoading}
-                />
+              <div className="flex flex-1 items-center justify-center h-full relative">
+                <div className="flex flex-col items-center space-y-8 w-full px-2 md:px-8">
+                  <Vortex />
+                  <AgentInputField
+                    value={inputValue}
+                    onChange={setInputValue}
+                    onSend={handleSend}
+                    isLoading={isLoading}
+                  />
+                </div>
               </div>
             )}
           </div>

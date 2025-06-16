@@ -24,3 +24,111 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@keyframes vortex-slow-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* La Doña Vortex Icon - SOLO ESTO DEBE QUEDAR PARA EL VORTEX */
+.vortex-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 0 12px rgba(215, 25, 32, 0.35));
+}
+
+.vortex-blade {
+  position: absolute;
+  width: calc(var(--vortex-size, 48px) * 0.175);
+  height: calc(var(--vortex-size, 48px) * 0.375);
+  background: #D71920;
+  border-radius: 85% 15% 85% 15%;
+  transform-origin: calc(var(--vortex-size, 48px) * 0.0875) calc(var(--vortex-size, 48px) * 0.458);
+  top: 50%;
+  left: 50%;
+  margin-left: calc(var(--vortex-size, 48px) * -0.0875);
+  margin-top: calc(var(--vortex-size, 48px) * -0.458);
+}
+
+.vortex-blade:nth-child(1) {
+  transform: rotate(0deg);
+}
+
+.vortex-blade:nth-child(2) {
+  transform: rotate(72deg);
+}
+
+.vortex-blade:nth-child(3) {
+  transform: rotate(144deg);
+}
+
+.vortex-blade:nth-child(4) {
+  transform: rotate(216deg);
+}
+
+.vortex-blade:nth-child(5) {
+  transform: rotate(288deg);
+}
+
+.vortex-icon {
+  transition: all 0.3s ease-out;
+}
+
+.vortex-icon.active {
+  animation: vortex-thinking 4s linear infinite;
+}
+
+@keyframes vortex-thinking {
+  0% {
+    transform: scale(1) rotate(0deg);
+    filter: drop-shadow(0 0 8px rgba(215, 25, 32, 0.4)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  }
+
+  25% {
+    transform: scale(1.08) rotate(90deg);
+    filter: drop-shadow(0 0 16px rgba(215, 25, 32, 0.7)) drop-shadow(0 3px 6px rgba(0, 0, 0, 0.15));
+  }
+
+  50% {
+    transform: scale(1) rotate(180deg);
+    filter: drop-shadow(0 0 12px rgba(215, 25, 32, 0.5)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  }
+
+  75% {
+    transform: scale(1.08) rotate(270deg);
+    filter: drop-shadow(0 0 16px rgba(215, 25, 32, 0.7)) drop-shadow(0 3px 6px rgba(0, 0, 0, 0.15));
+  }
+
+  100% {
+    transform: scale(1) rotate(360deg);
+    filter: drop-shadow(0 0 8px rgba(215, 25, 32, 0.4)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  }
+}
+
+.vortex-pulse {
+  background: radial-gradient(circle at 50% 50%, #f43f5e 80%, #be123c 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 24px 0 #f43f5e66;
+  animation: vortex-pulse 1.2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+@keyframes vortex-pulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.18);
+    opacity: 0.65;
+  }
+}
