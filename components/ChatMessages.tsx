@@ -7,9 +7,10 @@ interface Message {
 
 interface ChatMessagesProps {
     messages: Message[];
+    isTyping?: boolean;
 }
 
-const ChatMessages: React.FC<ChatMessagesProps> = ({ messages }) => {
+const ChatMessages: React.FC<ChatMessagesProps> = ({ messages, isTyping = false }) => {
     const bottomRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -34,6 +35,13 @@ const ChatMessages: React.FC<ChatMessagesProps> = ({ messages }) => {
                     </div>
                 </div>
             ))}
+            {isTyping && (
+                <div className="flex justify-start">
+                    <div className="max-w-[70%] px-4 py-3 rounded-lg shadow text-base bg-white text-gray-900 border border-gray-200 rounded-bl-none flex items-center gap-2">
+                        <span className="italic text-gray-400 animate-pulse">Typing...</span>
+                    </div>
+                </div>
+            )}
             <div ref={bottomRef} />
         </div>
     );

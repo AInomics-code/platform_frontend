@@ -148,7 +148,7 @@ export default function Home() {
             {hasMessages ? (
               <div className="flex flex-col flex-1 py-6 h-full">
                 <div className="flex-1 overflow-y-auto max-h-full px-2">
-                  <ChatMessages messages={messages} />
+                  <ChatMessages messages={messages} isTyping={isLoading} />
                 </div>
                 <AgentInputField
                   value={inputValue}
